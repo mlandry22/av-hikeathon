@@ -1,4 +1,5 @@
-setwd("/Users/mark/Documents/AV-hikeathon/")
+if(dir.exists("/Users/mark/Documents/AV-hikeathon/")) setwd("/Users/mark/Documents/AV-hikeathon/")
+if(dir.exists("/home/mark/competitions/av-hikeathon/")) setwd("/home/mark/competitions/av-hikeathon/")
 library(data.table)
 auc<-function (actual, predicted){
   ## overridden from Metrics package to prevent overflow
