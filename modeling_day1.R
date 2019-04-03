@@ -71,7 +71,8 @@ test[1:2]
 test[,.N,node1_id %in% train[,unique(node1_id)]]
 test[,.N,node1_id %in% train[,unique(node2_id)]]
 }
-cvMode<-FALSE
+
+cvMode<-TRUE
 if(cvMode==TRUE){
   train<-full_train[id%%8!=0] ## just using arbitrary but repeatable way of splitting train/test, not fileId as a feature
   test<-full_train[id%%8==0]
@@ -107,23 +108,34 @@ testFeatures<-merge(testFeatures,user,by.x="node1_id",by.y="node_id",all.x=TRUE)
 setnames(testFeatures,paste0("f",1:13),paste0("n1_f",1:13))
 testFeatures<-merge(testFeatures,user,by.x="node2_id",by.y="node_id",all.x=TRUE)
 setnames(testFeatures,paste0("f",1:13),paste0("n2_f",1:13))
+testFeatures[,`:=`(
+    sameNode=as.numeric(node1_id==node2_id)
+    ,same_f9=as.numeric(n1_f9==n2_f9)
+    ,same_f11=as.numeric(n1_f11==n2_f11)
+    ,same_f13=as.numeric(n1_f13==n2_f13)
+    ,ml_itx_f9=paste(n1_f9,n2_f9)
+    ,ml_itx_f11=paste(n1_f11,n2_f11)
+    ,ml_itx_f13=paste(n1_f13,n2_f13)
+)]  ## occurs fairly frequently and most of them are is_chat==0.
 
 if(cvMode==TRUE){
-  fwrite(testFeatures[1:2000000],"hike_dai_train2.csv")
-  fwrite(testFeatures[2000001:4000000],"hike_dai_valid2.csv")
-  fwrite(testFeatures[4000001:5000000],"hike_dai_test2.csv")
+  fwrite(testFeatures[3000001:5000000],"hike_dai_train3.csv")
+  fwrite(testFeatures[5000001:7000000],"hike_dai_valid3.csv")
+  fwrite(testFeatures[7000001:8000000],"hike_dai_test3.csv")
 } else {
   fwrite(testFeatures,"hike_final_test.csv")
 }
 
-dai<-fread("")
-submission<-testFeatures[,.(id,is_chat=0)]
-submission[,is_chat:=dai[,target.1]]
+create_submission<-FALSE
+if(create_submission==TRUE){
+  dai<-fread("posifani_preds_0fbc2dcb.csv")
+  submission<-testFeatures[,.(id,is_chat=0)]
+  submission[,is_chat:=dai[,target.1]]
 
-fName<-paste0("sub_",substr(gsub(" ","_",gsub(":","_",as.character(Sys.time()))),1,16),".csv")
-fwrite(submission,fName)
-system(paste0("pigz --fast --zip ",fName))
-
+  fName<-paste0("sub_",substr(gsub(" ","_",gsub(":","_",as.character(Sys.time()))),1,16),".csv")
+  fwrite(submission,fName)
+  system(paste0("pigz --fast --zip ",fName))
+}
 ## peculiar random test split, it would seem; 11.7M node1 in train; 20k not in train AS NODE1; 11.7M vs 63k for test.node1 as train.node2
 ## so can target encode node1, node2, node1/node2, node2 as node2, node1 as node1
 
