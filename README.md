@@ -15,7 +15,7 @@ Throughout the day will add:
 Modeling
 
 One Driverless model:
-https://user-images.githubusercontent.com/2976822/55470434-3c4f5700-55cd-11e9-946d-3f05a7ef28dd.png
+![DAI](https://user-images.githubusercontent.com/2976822/55470434-3c4f5700-55cd-11e9-946d-3f05a7ef28dd.png)
 
 Cheers!
 Will be updating quickly
