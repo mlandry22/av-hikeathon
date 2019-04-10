@@ -1,6 +1,7 @@
 # av-hikeathon
 Analytics Vidhya Hikeathon
 
+### Preface & Plan for Contents
 (iterating quickly on April 10th to ensure compliance)
 
 Throughout the day will add:
@@ -9,6 +10,12 @@ Throughout the day will add:
 * screenshots of our Driverless AI models (four roughly similar models, blended together evenly)
 * high level description and observations
 * machine specifications this was run on (workstation with dual processors, 128GB RAM, Titan XP GPU for Driverless AI)
+
+###
+Modeling
+
+One Driverless model:
+https://user-images.githubusercontent.com/2976822/55470434-3c4f5700-55cd-11e9-946d-3f05a7ef28dd.png
 
 Cheers!
 Will be updating quickly
