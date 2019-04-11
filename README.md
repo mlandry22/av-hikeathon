@@ -7,7 +7,7 @@ Score: 0.9324549106 (5th)
 ### Technical Specifications ###
 * Physical
   * Dell Precision T7810
-  * dual Xeon e5-2630 v3 (32 cores)
+  * dual Xeon e5-2630 v3 (16 cores, 32 threads)
   * 128 GB memory
   * Titan X Pascal {for Driverless AI, not feature creation}
 * Software
