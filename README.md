@@ -24,9 +24,7 @@ tofucige | 6/2/1 | train4b
 dosovona | 5/2/1 | train4 
 woduhotu | 5/2/1 | train4b
 
-Where train4 uses `MOD_SPLIT<-0` in https://github.com/mlandry22/av-hikeathon/blob/488015be3d6efab47081fc45e20b875e60434ca2/modeling_day1.R#L38
-And train4b uses `MOD_SPLIT<-1` in https://github.com/mlandry22/av-hikeathon/blob/488015be3d6efab47081fc45e20b875e60434ca2/modeling_day1.R#L38
-The data sets are identical otherwise.
+Where train4 uses `MOD_SPLIT<-0` in [modeling_day1.R line 38](https://github.com/mlandry22/av-hikeathon/blob/488015be3d6efab47081fc45e20b875e60434ca2/modeling_day1.R#L38) and train4b uses `MOD_SPLIT<-1`. The data sets are identical otherwise.
 
 And the accuracy settings of 5 and 6 are the only difference in the pairs of models, with the impact being that all 6 million rows were used for the 6/2/1 models and about 80% or so used for the 5/2/1, and also the ensembling step is more advanced.
 
