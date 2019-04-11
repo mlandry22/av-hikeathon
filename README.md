@@ -1,8 +1,8 @@
 # av-hikeathon
-Analytics Vidhya ML Hikeathon competition
-Contest Page: https://datahack.analyticsvidhya.com/contest/hikeathon
-Team: Vopani & Mark
-Score: 0.9324549106 (5th)
+Analytics Vidhya ML Hikeathon competition  
+Contest Page: https://datahack.analyticsvidhya.com/contest/hikeathon  
+Team: Vopani & Mark  
+Score: 0.9324549106 (5th)  
 
 ### Technical Specifications ###
 * Physical
