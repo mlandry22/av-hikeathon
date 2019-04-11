@@ -13,9 +13,3 @@ submission[,is_chat:=s1$target.1*0.25 + s2$target.1*0.25 + s3$target.1*0.25 + s4
 fName<-paste0("blend_",substr(gsub(" ","_",gsub(":","_",as.character(Sys.time()))),1,16),".csv")
 fwrite(submission,fName)
 system(paste0("pigz --fast --zip ",fName))
-
-newSub<-s1[,.(id,is_chat=0.45*is_chat+0.55*s2$is_chat)]
-
-fName<-paste0("blend_",substr(gsub(" ","_",gsub(":","_",as.character(Sys.time()))),1,16),".csv")
-fwrite(newSub,fName)
-system(paste0("pigz --fast --zip ",fName))
