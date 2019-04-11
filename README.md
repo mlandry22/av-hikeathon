@@ -7,13 +7,25 @@ Analytics Vidhya Hikeathon
 Throughout the day will add:
 * basic setup
 * pre-processing where the features are created using most of the data to get averages and counts, and a separate holdout set for the modeling set; this is already available in `explore_2.R`
-* screenshots of our Driverless AI models (four roughly similar models, blended together evenly)
 * high level description and observations
-* machine specifications this was run on (workstation with dual processors, 128GB RAM, Titan XP GPU for Driverless AI)
+
+### Technical Specifications ###
+* Physical
+  * Dell Precision T7810
+  * dual Xeon e5-2630 v3 (32 cores)
+  * 128 GB memory
+  * Titan X Pascal {for Driverless AI, not feature creation}
+* Software
+  * Ubuntu 16.04 LTS
+  * R version 3.5.1
+  * data.table 1.11.8
+  * Driverless AI version 1.5.3
+  
 
 ### Driverless AI Models ###
 
 The following screenshot shows the results of four different Driverless AI experiments.
+The results of these were blended evenly, in [simple_blend.R](https://github.com/mlandry22/av-hikeathon/blob/master/simple_blend.R) to produce the final submission.
 
 ![image](https://user-images.githubusercontent.com/2976822/55935672-cdd84d80-5bf9-11e9-9217-fa8b340d3b63.png)
 
