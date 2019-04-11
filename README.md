@@ -20,8 +20,9 @@ Score: 0.9324549106 (5th)
 Due to the impressive luxury of data, our team never created a machine learning model on the entire data. Initial models were run on 2 million rows and later 4 million and 6 million. But diminishing returns were certainly showing as those sizes were increased.
 But the entire data set was used for the overall modeling process, we just locked in a full modeling architecture and rather than use K-fold cross-validation to create K sets, we used only two and iterated only one portion.
 
-The ratio of train records to test records was about 1/8th. So to set up the modeling flow, 1/8th of the data was used as the out-of-fold sample. This leaves about 8 million records.
-That out-of-fold sample is used to apply features from the other 7/8th and ensure prevention of leakage in the simplest way.
+To set up the modeling flow, 1/8th of the data was used as the out-of-fold sample. This leaves about 8.8 million records.
+That out-of-fold sample is used to apply features from the other 7/8th (61.8M) and ensure prevention of leakage in the simplest way. So the features are calculated using 61.8 millions rows.
+
 The out-of-fold sample is further subdivided for the modeling where: 
 * 6 million were used for training the model
 * 1 million for validation, which in Driverless AI affects how the features are chosen and the model architecture tuning
@@ -73,7 +74,7 @@ woduhotu | 5/2/1 | train4b
 
 Where train4 uses `MOD_SPLIT<-0` in [modeling_day1.R line 38](https://github.com/mlandry22/av-hikeathon/blob/488015be3d6efab47081fc45e20b875e60434ca2/modeling_day1.R#L38) and train4b uses `MOD_SPLIT<-1`. The data sets are identical otherwise.
 
-And the accuracy settings of 5 and 6 are the only difference in the pairs of models, with the impact being that all 6 million rows were used for the 6/2/1 models and about 80% or so used for the 5/2/1, and also the ensembling step is more advanced.
+And the accuracy settings of 5 and 6 are the only difference in the pairs of models, with the impact being that all 6 million rows were used for the 6/2/1 models and about 80% or so used for the 5/2/1, and also the ensembling step has two levels instead of one ([Driverless AI documentation](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/running-experiment.html)).
 
 Further details of each model:
 Experiment kevepuve
@@ -88,7 +89,5 @@ Experiment dosovona
 Experiment woduhotu
 ![image](https://user-images.githubusercontent.com/2976822/55935460-4d195180-5bf9-11e9-9a71-e75cbbcd7699.png)
 
-Cheers!
-Will be updating quickly
-
+Cheers!  
 ~Mark
